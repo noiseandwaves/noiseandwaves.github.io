@@ -80,25 +80,69 @@ Each component in \`src/components/\` is self-contained and can be easily modifi
 
 ## Deployment to GitHub Pages
 
-1. Build the project:
-\`\`\`bash
+### Automatic Deployment with GitHub Actions (Recommended)
+
+The project includes a GitHub Actions workflow that automatically:
+1. Builds the project with `npm run build`
+2. Deploys to GitHub Pages from the `dist/` folder
+
+**Setup:**
+
+1. Go to your repository Settings → Pages
+2. Under "Source", select **Deploy from a branch**
+3. Select **main** branch and **/dist** folder
+4. Click Save
+
+That's it! Every time you push to `main`, GitHub Actions will:
+- Install dependencies
+- Build the project (`npm run build`)
+- Deploy the `dist/` folder to GitHub Pages automatically
+
+Your site will be live at: `https://noiseandwaves.github.io`
+
+### Manual Deployment (Alternative)
+
+If you prefer to build locally and push:
+
+```bash
+# Build the project
 npm run build
-\`\`\`
 
-2. Commit changes:
-\`\`\`bash
-git add .
-git commit -m "Deploy to GitHub Pages"
-\`\`\`
-
-3. Push to main branch:
-\`\`\`bash
+# The dist/ folder is now ready to deploy
+# Commit and push
+git add dist/
+git commit -m "Build for production"
 git push origin main
-\`\`\`
+```
 
-GitHub Pages will automatically deploy the contents of the \`dist/\` folder.
+Then configure GitHub Pages as described above to serve from the `dist/` folder.
+
+## Troubleshooting
+
+### MIME Type Error: "Expected a JavaScript-or-Wasm module script"
+
+**Problem:** You see this error in the browser console when visiting the deployed site.
+
+**Cause:** GitHub Pages is trying to serve JSX files directly instead of compiled JavaScript.
+
+**Solution:** This is solved by:
+1. Running `npm run build` to compile React/JSX to plain JavaScript
+2. Setting GitHub Pages to serve from the `dist/` folder (not the repository root)
+3. The GitHub Actions workflow does this automatically
+
+Make sure:
+- ✅ The workflow file exists: `.github/workflows/deploy.yml`
+- ✅ GitHub Pages Source is set to "Deploy from a branch" with `/dist` folder
+- ✅ You've pushed changes to `main` branch
+
+### Site showing 404 errors on refresh
+
+**Cause:** GitHub Pages treats every URL as a separate file request.
+
+**Solution:** We've included a `public/404.html` file that redirects back to `index.html`. This handles all routes correctly.
 
 ## Next Steps
+
 
 - [ ] Add more sections (team, testimonials, blog)
 - [ ] Create product showcase pages
