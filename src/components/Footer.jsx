@@ -7,7 +7,7 @@ export default function Footer() {
     <footer className="bg-zinc-950 text-zinc-400 py-16 border-t border-zinc-900">
       <div className="container-lg">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-          
+
           {/* Columna Logo */}
           <div>
             <div className="flex items-center gap-3 mb-4">
@@ -15,7 +15,7 @@ export default function Footer() {
               <h3 className="text-base font-bold text-zinc-200">Noise & Waves</h3>
             </div>
             <p className="text-sm text-zinc-500 leading-relaxed">
-              Creating the future of audio synthesis and modular hardware. Designed with love in Stockholm, Sweden.
+              Creating the future of audio synthesis and modular hardware. Designed with love in Medellín, Colombia.
             </p>
           </div>
 
