@@ -4,38 +4,52 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer id="contact" className="bg-gray-950 text-white py-12 border-t border-gray-800">
+    <footer className="bg-zinc-950 text-zinc-400 py-16 border-t border-zinc-900">
       <div className="container-lg">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+          
+          {/* Columna Logo */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <img src={logo} alt="Noise & Waves" className="h-8 w-8" />
-              <h3 className="text-lg font-bold">Noise & Waves</h3>
+            <div className="flex items-center gap-3 mb-4">
+              <img src={logo} alt="Noise & Waves" className="h-7 w-7 filter brightness-90" />
+              <h3 className="text-base font-bold text-zinc-200">Noise & Waves</h3>
             </div>
-            <p className="text-gray-400">
-              Creating the future of audio technology
+            <p className="text-sm text-zinc-500 leading-relaxed">
+              Creating the future of audio synthesis and modular hardware. Designed with love in Stockholm, Sweden.
             </p>
           </div>
+
+          {/* Columna Producto */}
           <div>
-            <h4 className="font-bold mb-4">Product</h4>
-            <ul className="space-y-2 text-gray-400">
-              <li><a href="#" className="hover:text-white transition">Synthesizers</a></li>
-              <li><a href="#" className="hover:text-white transition">Modules</a></li>
-              <li><a href="#" className="hover:text-white transition">Accessories</a></li>
+            <h4 className="text-xs font-bold text-zinc-300 uppercase tracking-widest mb-4">Products</h4>
+            <ul className="space-y-2 text-sm">
+              <li><a href="#features" className="hover:text-zinc-200 transition-colors">Synthesizers</a></li>
+              <li><a href="#features" className="hover:text-zinc-200 transition-colors">Boutique Modules</a></li>
+              <li><a href="#features" className="hover:text-zinc-200 transition-colors">Signal Processors</a></li>
             </ul>
           </div>
+
+          {/* Columna Conectar */}
           <div>
-            <h4 className="font-bold mb-4">Connect</h4>
-            <ul className="space-y-2 text-gray-400">
-              <li><a href="#" className="hover:text-white transition">Twitter</a></li>
-              <li><a href="#" className="hover:text-white transition">GitHub</a></li>
-              <li><a href="#" className="hover:text-white transition">Discord</a></li>
+            <h4 className="text-xs font-bold text-zinc-300 uppercase tracking-widest mb-4">Connect</h4>
+            <ul className="space-y-2 text-sm">
+              <li><a href="#" className="hover:text-zinc-200 transition-colors">GitHub</a></li>
+              <li><a href="#" className="hover:text-zinc-200 transition-colors">Discord Community</a></li>
+              <li><a href="mailto:hello@noiseandwaves.com" className="hover:text-zinc-200 transition-colors">Direct Support</a></li>
             </ul>
           </div>
+
         </div>
-        <div className="border-t border-gray-800 pt-8 text-center text-gray-500">
+
+        {/* Derechos de Autor */}
+        <div className="border-t border-zinc-900 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-zinc-600">
           <p>&copy; {currentYear} Noise & Waves. All rights reserved.</p>
+          <div className="flex gap-6">
+            <a href="#" className="hover:text-zinc-400 transition-colors">Privacy Policy</a>
+            <a href="#" className="hover:text-zinc-400 transition-colors">Terms of Service</a>
+          </div>
         </div>
+
       </div>
     </footer>
   );
