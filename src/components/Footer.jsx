@@ -1,4 +1,4 @@
-import logo from '../assets/logo-n&w.png';
+import logo from '../assets/logonnandwtext-white.svg';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -10,9 +10,8 @@ export default function Footer() {
 
           {/* Columna Logo */}
           <div>
-            <div className="flex items-center gap-3 mb-4">
-              <img src={logo} alt="Noise & Waves" className="h-7 w-7 filter brightness-90" />
-              <h3 className="text-base font-bold text-zinc-200">Noise & Waves</h3>
+            <div className="flex items-center mb-5">
+              <img src={logo} alt="Noise & Waves" className="h-14 w-auto opacity-80 hover:opacity-100 transition-opacity duration-300" />
             </div>
             <p className="text-sm text-zinc-500 leading-relaxed">
               Creating the future of audio synthesis and modular hardware. Designed with love in Medellín, Colombia.

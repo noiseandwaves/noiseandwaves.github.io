@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import logo from '../assets/logo-n&w.png';
+import logo from '../assets/logonandw-white.svg';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -19,16 +19,15 @@ export default function Header() {
   }, []);
 
   return (
-    <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${
-      scrolled 
-        ? 'bg-zinc-950/80 backdrop-blur-md border-b border-zinc-900/80 shadow-[0_4px_30px_rgba(0,0,0,0.4)]' 
-        : 'bg-zinc-950/50 backdrop-blur-sm border-b border-zinc-950'
-    }`}>
+    <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${scrolled
+      ? 'bg-zinc-950/80 backdrop-blur-md border-b border-zinc-900/80 shadow-[0_4px_30px_rgba(0,0,0,0.4)]'
+      : 'bg-zinc-950/50 backdrop-blur-sm border-b border-zinc-950'
+      }`}>
       <nav className="container-lg flex items-center justify-between h-16">
-        
+
         {/* Logotipo */}
-        <a href="#" className="flex items-center gap-3 group">
-          <img src={logo} alt="Noise & Waves" className="h-8 w-8 filter brightness-95 group-hover:brightness-100 transition-all duration-300" />
+        <a href="#" className="flex items-center gap-2.5 group">
+          <img src={logo} alt="Noise & Waves" className="h-14 w-14 opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300" />
           <span className="font-bold text-lg text-zinc-100 tracking-tight group-hover:text-white transition-colors duration-300">
             Noise & Waves
           </span>
@@ -55,7 +54,7 @@ export default function Header() {
         </div>
 
         {/* Botón Hamburguesa Móvil */}
-        <button 
+        <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           className="md:hidden p-2 rounded-md text-zinc-400 hover:text-white focus:outline-none transition-colors"
           aria-label="Toggle Menu"
@@ -74,32 +73,31 @@ export default function Header() {
       </nav>
 
       {/* Menú Desplegable Móvil */}
-      <div className={`md:hidden overflow-hidden transition-all duration-300 border-t border-zinc-900 ${
-        mobileMenuOpen ? 'max-h-60 opacity-100 bg-zinc-950/95 backdrop-blur-md' : 'max-h-0 opacity-0 pointer-events-none'
-      }`}>
+      <div className={`md:hidden overflow-hidden transition-all duration-300 border-t border-zinc-900 ${mobileMenuOpen ? 'max-h-60 opacity-100 bg-zinc-950/95 backdrop-blur-md' : 'max-h-0 opacity-0 pointer-events-none'
+        }`}>
         <div className="px-6 py-6 space-y-4 flex flex-col">
-          <a 
-            href="#features" 
+          <a
+            href="#features"
             onClick={() => setMobileMenuOpen(false)}
             className="text-sm font-bold tracking-wider text-zinc-400 hover:text-white uppercase transition-colors"
           >
             Features
           </a>
-          <a 
-            href="#about" 
+          <a
+            href="#about"
             onClick={() => setMobileMenuOpen(false)}
             className="text-sm font-bold tracking-wider text-zinc-400 hover:text-white uppercase transition-colors"
           >
             About
           </a>
-          <a 
-            href="#contact" 
+          <a
+            href="#contact"
             onClick={() => setMobileMenuOpen(false)}
             className="text-sm font-bold tracking-wider text-zinc-400 hover:text-white uppercase transition-colors"
           >
             Contact
           </a>
-          <a 
+          <a
             href="#contact"
             onClick={() => setMobileMenuOpen(false)}
             className="btn-primary text-center w-full block mt-2"
