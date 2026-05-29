@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function Contact() {
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState('idle'); // idle | submitting | success | error
   const [errors, setErrors] = useState({});
@@ -35,11 +35,18 @@ export default function Contact() {
 
     setStatus('submitting');
 
-    // Simular envío a servidor (e.g. 1.5s delay)
+    // Construir asunto y cuerpo del email de forma localizada e inteligente
+    const subject = `${locale === 'es' ? 'Contacto Web' : 'Web Contact'} - ${formData.name}`;
+    const body = `${locale === 'es' ? 'Nombre / Identificador' : 'Name / Signal Tag'}: ${formData.name}\n` +
+                 `Email: ${formData.email}\n\n` +
+                 `${locale === 'es' ? 'Mensaje / Transmisión' : 'Message / Transmission'}:\n${formData.message}`;
+
+    // Pequeño retardo de 1 segundo para feedback visual premium antes de redirigir
     setTimeout(() => {
+      window.location.href = `mailto:noiseandwaves@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       setStatus('success');
       setFormData({ name: '', email: '', message: '' });
-    }, 1500);
+    }, 1000);
   };
 
   return (
