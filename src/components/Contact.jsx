@@ -1,19 +1,21 @@
 import { useState } from 'react';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Contact() {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState('idle'); // idle | submitting | success | error
   const [errors, setErrors] = useState({});
 
   const validate = () => {
     const tempErrors = {};
-    if (!formData.name.trim()) tempErrors.name = "Name is required";
+    if (!formData.name.trim()) tempErrors.name = t('contact.form.errors.nameRequired');
     if (!formData.email.trim()) {
-      tempErrors.email = "Email is required";
+      tempErrors.email = t('contact.form.errors.emailRequired');
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      tempErrors.email = "Please enter a valid email address";
+      tempErrors.email = t('contact.form.errors.emailInvalid');
     }
-    if (!formData.message.trim()) tempErrors.message = "Message is required";
+    if (!formData.message.trim()) tempErrors.message = t('contact.form.errors.messageRequired');
     setErrors(tempErrors);
     return Object.keys(tempErrors).length === 0;
   };
@@ -51,14 +53,13 @@ export default function Contact() {
           {/* Columna de Información */}
           <div className="lg:col-span-5">
             <span className="text-xs font-bold tracking-[0.2em] text-zinc-500 uppercase block mb-3">
-              Get in Touch
+              {t('contact.badge')}
             </span>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-zinc-100 mb-6 tracking-tight">
-              Connect With the Lab.
+              {t('contact.title')}
             </h2>
             <p className="text-zinc-400 mb-8 leading-relaxed">
-              Have questions about our modular synthesizer designs, need support with a module,
-              or want to collaborate on a custom hardware project? Write us a message.
+              {t('contact.description')}
             </p>
 
             <div className="space-y-6">
@@ -69,7 +70,7 @@ export default function Contact() {
                   </svg>
                 </div>
                 <div>
-                  <span className="text-xs text-zinc-500 block">General & Technical Email</span>
+                  <span className="text-xs text-zinc-500 block">{t('contact.emailLabel')}</span>
                   <a href="mailto:noiseandwaves@gmail.com" className="text-sm font-semibold text-zinc-200 hover:text-white transition">
                     noiseandwaves@gmail.com
                   </a>
@@ -84,9 +85,9 @@ export default function Contact() {
                   </svg>
                 </div>
                 <div>
-                  <span className="text-xs text-zinc-500 block">Headquarters</span>
+                  <span className="text-xs text-zinc-500 block">{t('contact.hqLabel')}</span>
                   <span className="text-sm font-semibold text-zinc-200">
-                    Medellín, Colombia (EST. 2026)
+                    {t('contact.hqValue')}
                   </span>
                 </div>
               </div>
@@ -94,7 +95,9 @@ export default function Contact() {
 
             <div className="mt-12 pt-8 border-t border-zinc-900 flex items-center gap-3">
               <span className="w-2 h-2 rounded-full bg-blue-500 led-glow-blue inline-block"></span>
-              <span className="text-xs text-zinc-500 uppercase tracking-widest font-bold">Lab status: Active and designing</span>
+              <span className="text-xs text-zinc-500 uppercase tracking-widest font-bold">
+                {t('contact.status')}
+              </span>
             </div>
           </div>
 
@@ -109,15 +112,17 @@ export default function Contact() {
                       <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold text-zinc-100 mb-2">Message Transmitted</h3>
+                  <h3 className="text-xl font-bold text-zinc-100 mb-2">
+                    {t('contact.success.title')}
+                  </h3>
                   <p className="text-sm text-zinc-400 max-w-sm mx-auto mb-8">
-                    Your transmission has been received in our audio synthesis lab. We will respond within 48 hours.
+                    {t('contact.success.description')}
                   </p>
                   <button
                     onClick={() => setStatus('idle')}
-                    className="btn-secondary py-2 px-6"
+                    className="btn-secondary py-2 px-6 animate-pulse"
                   >
-                    Send Another Transmission
+                    {t('contact.success.cta')}
                   </button>
                 </div>
               ) : (
@@ -126,7 +131,7 @@ export default function Contact() {
                   {/* Campo Nombre */}
                   <div>
                     <label htmlFor="name" className="text-xs font-bold text-zinc-400 block mb-2 uppercase tracking-wider">
-                      Name / Signal Tag
+                      {t('contact.form.nameLabel')}
                     </label>
                     <input
                       type="text"
@@ -134,7 +139,7 @@ export default function Contact() {
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      placeholder="e.g. Sine Wave"
+                      placeholder={t('contact.form.namePlaceholder')}
                       disabled={status === 'submitting'}
                       className={`w-full px-4 py-3 bg-zinc-950 border ${errors.name ? 'border-red-500/70' : 'border-zinc-800/80 hover:border-zinc-700/80'} focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-zinc-200 rounded-md text-sm outline-none transition-all duration-300`}
                     />
@@ -144,7 +149,7 @@ export default function Contact() {
                   {/* Campo Email */}
                   <div>
                     <label htmlFor="email" className="text-xs font-bold text-zinc-400 block mb-2 uppercase tracking-wider">
-                      Email Address
+                      {t('contact.form.emailLabel')}
                     </label>
                     <input
                       type="email"
@@ -152,7 +157,7 @@ export default function Contact() {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="e.g. operator@freq.com"
+                      placeholder={t('contact.form.emailPlaceholder')}
                       disabled={status === 'submitting'}
                       className={`w-full px-4 py-3 bg-zinc-950 border ${errors.email ? 'border-red-500/70' : 'border-zinc-800/80 hover:border-zinc-700/80'} focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-zinc-200 rounded-md text-sm outline-none transition-all duration-300`}
                     />
@@ -162,7 +167,7 @@ export default function Contact() {
                   {/* Campo Mensaje */}
                   <div>
                     <label htmlFor="message" className="text-xs font-bold text-zinc-400 block mb-2 uppercase tracking-wider">
-                      Transmission / Message
+                      {t('contact.form.messageLabel')}
                     </label>
                     <textarea
                       id="message"
@@ -170,7 +175,7 @@ export default function Contact() {
                       rows={5}
                       value={formData.message}
                       onChange={handleChange}
-                      placeholder="State your technical inquiries or feedback here..."
+                      placeholder={t('contact.form.messagePlaceholder')}
                       disabled={status === 'submitting'}
                       className={`w-full px-4 py-3 bg-zinc-950 border ${errors.message ? 'border-red-500/70' : 'border-zinc-800/80 hover:border-zinc-700/80'} focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-zinc-200 rounded-md text-sm outline-none transition-all duration-300 resize-none`}
                     />
@@ -189,10 +194,10 @@ export default function Contact() {
                           <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                           <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                         </svg>
-                        Transmitting...
+                        {t('contact.form.submitting')}
                       </>
                     ) : (
-                      'Send Message'
+                      t('contact.form.submit')
                     )}
                   </button>
 
@@ -207,3 +212,4 @@ export default function Contact() {
     </section>
   );
 }
+

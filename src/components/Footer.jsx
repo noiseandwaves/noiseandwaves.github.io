@@ -1,6 +1,8 @@
+import { useLanguage } from '../context/LanguageContext';
 import logo from '../assets/logonnandwtext-white.svg';
 
 export default function Footer() {
+  const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -14,27 +16,31 @@ export default function Footer() {
               <img src={logo} alt="Noise & Waves" className="h-14 w-auto opacity-80 hover:opacity-100 transition-opacity duration-300" />
             </div>
             <p className="text-sm text-zinc-500 leading-relaxed">
-              Creating the future of audio synthesis and modular hardware. Designed with love in Medellín, Colombia.
+              {t('footer.description')}
             </p>
           </div>
 
           {/* Columna Producto */}
           <div>
-            <h4 className="text-xs font-bold text-zinc-300 uppercase tracking-widest mb-4">Products</h4>
+            <h4 className="text-xs font-bold text-zinc-300 uppercase tracking-widest mb-4">
+              {t('footer.products')}
+            </h4>
             <ul className="space-y-2 text-sm">
-              <li><a href="#features" className="hover:text-zinc-200 transition-colors">Synthesizers</a></li>
-              <li><a href="#features" className="hover:text-zinc-200 transition-colors">Boutique Modules</a></li>
-              <li><a href="#features" className="hover:text-zinc-200 transition-colors">Signal Processors</a></li>
+              <li><a href="#features" className="hover:text-zinc-200 transition-colors">{t('footer.productsList.synthesizers')}</a></li>
+              <li><a href="#features" className="hover:text-zinc-200 transition-colors">{t('footer.productsList.modules')}</a></li>
+              <li><a href="#features" className="hover:text-zinc-200 transition-colors">{t('footer.productsList.processors')}</a></li>
             </ul>
           </div>
 
           {/* Columna Conectar */}
           <div>
-            <h4 className="text-xs font-bold text-zinc-300 uppercase tracking-widest mb-4">Connect</h4>
+            <h4 className="text-xs font-bold text-zinc-300 uppercase tracking-widest mb-4">
+              {t('footer.connect')}
+            </h4>
             <ul className="space-y-2 text-sm">
-              <li><a href="#" className="hover:text-zinc-200 transition-colors">GitHub</a></li>
-              <li><a href="#" className="hover:text-zinc-200 transition-colors">Discord Community</a></li>
-              <li><a href="mailto:hello@noiseandwaves.com" className="hover:text-zinc-200 transition-colors">Direct Support</a></li>
+              <li><a href="#" className="hover:text-zinc-200 transition-colors">{t('footer.connectList.github')}</a></li>
+              <li><a href="#" className="hover:text-zinc-200 transition-colors">{t('footer.connectList.discord')}</a></li>
+              <li><a href="mailto:hello@noiseandwaves.com" className="hover:text-zinc-200 transition-colors">{t('footer.connectList.support')}</a></li>
             </ul>
           </div>
 
@@ -42,10 +48,10 @@ export default function Footer() {
 
         {/* Derechos de Autor */}
         <div className="border-t border-zinc-900 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-zinc-600">
-          <p>&copy; {currentYear} Noise & Waves. All rights reserved.</p>
+          <p>{t('footer.copyright', { year: currentYear })}</p>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-zinc-400 transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-zinc-400 transition-colors">Terms of Service</a>
+            <a href="#" className="hover:text-zinc-400 transition-colors">{t('footer.privacy')}</a>
+            <a href="#" className="hover:text-zinc-400 transition-colors">{t('footer.terms')}</a>
           </div>
         </div>
 
@@ -53,3 +59,4 @@ export default function Footer() {
     </footer>
   );
 }
+

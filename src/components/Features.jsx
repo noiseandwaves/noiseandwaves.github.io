@@ -1,10 +1,14 @@
+import { useLanguage } from '../context/LanguageContext';
+
 export default function Features() {
+  const { t } = useLanguage();
+
   const features = [
     {
       model: "MD-01",
-      title: "Modular Architecture",
-      subtitle: "Bespoke Patches & Signal Flows",
-      description: "Infinite sonic canvas. Patch any CV (Control Voltage) or audio signal path, chain multi-stage modules, and shape your own customized acoustic layout.",
+      title: t('features.modules.md01.title'),
+      subtitle: t('features.modules.md01.subtitle'),
+      description: t('features.modules.md01.description'),
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-zinc-100">
           <path strokeLinecap="round" strokeLinejoin="round" d="M6 13.5V3.75m0 9.75a1.5 1.5 0 0 1 0 3m0-3a1.5 1.5 0 0 0 0 3m0 3.75V16.5m12-3V3.75m0 9.75a1.5 1.5 0 0 1 0 3m0-3a1.5 1.5 0 0 0 0 3m0 3.75V16.5m-6-9V3.75m0 3.75a1.5 1.5 0 0 1 0 3m0-3a1.5 1.5 0 0 0 0 3m0 9.75V10.5" />
@@ -13,9 +17,9 @@ export default function Features() {
     },
     {
       model: "HF-02",
-      title: "High-Fidelity Audio",
-      subtitle: "Discrete Path & High Headroom",
-      description: "Burr-Brown operational amplifiers and discrete matched transistors providing exceptional +24dBu headroom, flat response, and an incredibly silent noise floor.",
+      title: t('features.modules.hf02.title'),
+      subtitle: t('features.modules.hf02.subtitle'),
+      description: t('features.modules.hf02.description'),
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-zinc-100">
           <path strokeLinecap="round" strokeLinejoin="round" d="M19.114 5.636a9 9 0 0 1 0 12.728M16.463 8.288a5.25 5.25 0 0 1 0 7.424M12 18.75V21m-4.72-4.72 1.06-1.06m7.32-7.32 1.06-1.06M12 3v2.25m-4.72 2.11L8.34 8.42m7.32 7.32 1.06 1.06M12 8.25a3.75 3.75 0 1 0 0 7.5 3.75 3.75 0 0 0 0-7.5Z" />
@@ -24,9 +28,9 @@ export default function Features() {
     },
     {
       model: "IN-03",
-      title: "Seamless Integration",
-      subtitle: "Eurorack & MIDI Standards",
-      description: "Full out-of-the-box compatibility with standard 1V/Oct Eurorack control voltage systems, MIDI-to-CV conversion modules, and global clock sync nodes.",
+      title: t('features.modules.in03.title'),
+      subtitle: t('features.modules.in03.subtitle'),
+      description: t('features.modules.in03.description'),
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-zinc-100">
           <path strokeLinecap="round" strokeLinejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />
@@ -41,10 +45,10 @@ export default function Features() {
         
         <div className="max-w-3xl mx-auto text-center mb-16">
           <span className="text-xs font-bold tracking-[0.2em] text-zinc-500 uppercase block mb-3">
-            Core Features
+            {t('features.badge')}
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-zinc-100 tracking-tight">
-            Synthesizer Architecture
+            {t('features.title')}
           </h2>
         </div>
 
@@ -90,3 +94,4 @@ export default function Features() {
     </section>
   );
 }
+

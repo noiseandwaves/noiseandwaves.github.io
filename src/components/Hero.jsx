@@ -1,4 +1,8 @@
+import { useLanguage } from '../context/LanguageContext';
+
 export default function Hero() {
+  const { t, locale } = useLanguage();
+
   return (
     <section className="min-h-[85vh] relative flex items-center overflow-hidden bg-zinc-950 audio-grid py-20">
       
@@ -31,25 +35,34 @@ export default function Hero() {
           <div className="inline-flex items-center gap-2.5 px-3 py-1 bg-zinc-900/80 border border-zinc-800 rounded-full mb-8 backdrop-blur-sm">
             <span className="w-1.5 h-1.5 rounded-full bg-blue-500 led-glow-blue animate-pulse"></span>
             <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-400">
-              Lab Series // Model N&W-01
+              {t('hero.badge')}
             </span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-zinc-100 mb-6 leading-[1.1] tracking-tight">
-            Innovative <br className="hidden sm:inline" />
-            <span className="text-white drop-shadow-[0_0_30px_rgba(255,255,255,0.05)]">Audio Instruments.</span>
+            {locale === 'es' ? (
+              <>
+                {t('hero.title')} <br className="hidden sm:inline" />
+                <span className="text-white drop-shadow-[0_0_30px_rgba(255,255,255,0.05)]">{t('hero.titleInnovative')}</span>
+              </>
+            ) : (
+              <>
+                {t('hero.titleInnovative')} <br className="hidden sm:inline" />
+                <span className="text-white drop-shadow-[0_0_30px_rgba(255,255,255,0.05)]">{t('hero.title')}</span>
+              </>
+            )}
           </h1>
 
           <p className="text-base sm:text-lg md:text-xl text-zinc-400 mb-10 leading-relaxed font-normal max-w-xl">
-            We engineer high-fidelity modular synthesizers and boutique audio processors. Designed to spark infinite creativity with absolute precision.
+            {t('hero.subtitle')}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
             <a href="#features" className="btn-primary py-3 px-8 text-center">
-              Explore Modules
+              {t('hero.ctaExplore')}
             </a>
             <a href="#about" className="btn-secondary py-3 px-8 text-center">
-              Learn Philosophy
+              {t('hero.ctaPhilosophy')}
             </a>
           </div>
 
@@ -58,3 +71,4 @@ export default function Hero() {
     </section>
   );
 }
+

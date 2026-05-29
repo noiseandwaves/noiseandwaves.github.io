@@ -1,0 +1,108 @@
+{
+  "header": {
+    "features": "Características",
+    "about": "Nosotros",
+    "contact": "Contacto",
+    "cta": "Escríbenos",
+    "toggleMenu": "Alternar Menú"
+  },
+  "hero": {
+    "badge": "Lab Series // Modelo N&W-01",
+    "title": "Instrumentos de Audio",
+    "titleInnovative": "Innovadores.",
+    "subtitle": "Diseñamos sintetizadores modulares de alta fidelidad y procesadores de audio boutique. Creados para inspirar una creatividad infinita con absoluta precisión.",
+    "ctaExplore": "Explorar Módulos",
+    "ctaPhilosophy": "Filosofía"
+  },
+  "features": {
+    "badge": "Características Principales",
+    "title": "Arquitectura de Sintetizadores",
+    "modules": {
+      "md01": {
+        "title": "Arquitectura Modular",
+        "subtitle": "Flujos de Señal & Ruteo a Medida",
+        "description": "Un lienzo sonoro infinito. Rutea cualquier CV (Voltaje de Control) o camino de señal de audio, encadena módulos multi-etapa y dale forma a tu propio diseño acústico personalizado."
+      },
+      "hf02": {
+        "title": "Audio de Alta Fidelidad",
+        "subtitle": "Ruta Discreta & Gran Headroom",
+        "description": "Amplificadores operacionales Burr-Brown y transistores discretos emparejados que proporcionan un headroom excepcional de +24dBu, respuesta plana y un piso de ruido increíblemente silencioso."
+      },
+      "in03": {
+        "title": "Integración Total",
+        "subtitle": "Estándares Eurorack & MIDI",
+        "description": "Compatibilidad total de fábrica con sistemas de voltaje de control Eurorack estándar de 1V/Oct, módulos de conversión MIDI-a-CV y nodos de sincronización de reloj global."
+      }
+    }
+  },
+  "about": {
+    "badge": "Nuestra Filosofía",
+    "title": "Alma Analógica. Precisión Digital.",
+    "description": "Noise & Waves es un taller boutique de sintetizadores personalizados. Diseñamos y construimos hardware modular, dispositivos de alta fidelidad y procesadores de señal que unen la calidez acústica vintage con un rendimiento moderno y sólido.",
+    "pillars": {
+      "warmth": {
+        "title": "Calidez Analógica",
+        "subtitle": "Circuitos Propios & Alma",
+        "description": "Rutas analógicas discretas, filtros activos afinados a mano y circuitos de modelado de onda personalizados que inyectan armónicos orgánicos y peso analógico a cada frecuencia."
+      },
+      "precision": {
+        "title": "Precisión Digital",
+        "subtitle": "DSP ARM & Relojes Estables",
+        "description": "Microcontroladores basados en ARM de última generación, convertidores DAC/ADC de ultra-baja latencia y osciladores digitales de alta frecuencia para una modulación precisa y un control DSP confiable."
+      },
+      "quality": {
+        "title": "Calidad Artesanal",
+        "subtitle": "Hecho a mano en nuestro laboratorio",
+        "description": "Cada módulo está soldado a mano, cuenta con paneles de control de aluminio anodizado premium, perillas de alta calidad con respuesta táctil y pasa por rigurosas pruebas de señal."
+      }
+    }
+  },
+  "contact": {
+    "badge": "Contacto",
+    "title": "Conecta con el Laboratorio.",
+    "description": "¿Tienes preguntas sobre nuestros diseños de sintetizadores modulares, necesitas soporte con un módulo o quieres colaborar en un proyecto de hardware personalizado? Escríbenos un mensaje.",
+    "emailLabel": "Correo General y Técnico",
+    "hqLabel": "Sede Central",
+    "hqValue": "Medellín, Colombia (EST. 2026)",
+    "status": "Estado del laboratorio: Activo y diseñando",
+    "success": {
+      "title": "Mensaje Transmitido",
+      "description": "Tu transmisión ha sido recibida en nuestro laboratorio de síntesis de audio. Responderemos en menos de 48 horas.",
+      "cta": "Enviar Otra Transmisión"
+    },
+    "form": {
+      "nameLabel": "Nombre / Identificador de Señal",
+      "namePlaceholder": "ej. Onda Senoidal",
+      "emailLabel": "Dirección de Correo",
+      "emailPlaceholder": "ej. operador@freq.com",
+      "messageLabel": "Transmisión / Mensaje",
+      "messagePlaceholder": "Describe tus preguntas técnicas o comentarios aquí...",
+      "submit": "Enviar Mensaje",
+      "submitting": "Transmitiendo...",
+      "errors": {
+        "nameRequired": "El nombre es obligatorio",
+        "emailRequired": "El correo es obligatorio",
+        "emailInvalid": "Por favor ingresa una dirección de correo válida",
+        "messageRequired": "El mensaje es obligatorio"
+      }
+    }
+  },
+  "footer": {
+    "description": "Creando el futuro de la síntesis de audio y el hardware modular. Diseñado con amor en Medellín, Colombia.",
+    "products": "Productos",
+    "productsList": {
+      "synthesizers": "Sintetizadores",
+      "modules": "Módulos Boutique",
+      "processors": "Procesadores de Señal"
+    },
+    "connect": "Conectar",
+    "connectList": {
+      "github": "GitHub",
+      "discord": "Comunidad de Discord",
+      "support": "Soporte Directo"
+    },
+    "copyright": "© {{year}} Noise & Waves. Todos los derechos reservados.",
+    "privacy": "Política de Privacidad",
+    "terms": "Términos de Servicio"
+  }
+}
